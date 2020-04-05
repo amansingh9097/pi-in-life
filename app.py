@@ -1,16 +1,9 @@
 from flask import Flask
 import json
-import atexit
 from datetime import datetime
-# from apscheduler.schedulers import Scheduler
 
 app = Flask(__name__)
 
-# cron = Scheduler(daemon=True)
-# # Explicitly kickoff the background thread
-# cron.start()
-
-# @cron.interval_schedule(seconds=1)
 @app.route("/", methods=["GET"])
 def home():
 	with open('pi.json') as f:
@@ -44,8 +37,5 @@ def home():
 	</html>
 	""".format(datetime.strftime(current_datetime,"%d %B, %Y %X"), current_date, current_date_pos, current_time, current_time_pos)
 
-atexit.register(lambda: scheduler.shutdown())
-
 if __name__ == "__main__":
 	app.run(debug=True)
-	

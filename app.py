@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_frozen import Freezer
+# from flask_frozen import Freezer
 import json
 from datetime import datetime
 

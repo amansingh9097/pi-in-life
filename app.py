@@ -17,7 +17,7 @@ def home():
 	current_time_pos = data['pi'].find(current_time)
 
 	return """
-	<meta http-equiv="refresh" content="1" >
+	
 	<head>
 		<title>A part of π is in our everyday life</title>
 	</head>

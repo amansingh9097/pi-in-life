@@ -4,7 +4,7 @@ import json
 from datetime import datetime
 
 app = Flask(__name__)
-freezer = Freezer(app)
+# freezer = Freezer(app)
 
 @app.route("/", methods=["GET"])
 def home():
@@ -39,6 +39,7 @@ def home():
 	</html>
 	""".format(datetime.strftime(current_datetime,"%d %B, %Y %X"), current_date, current_date_pos, current_time, current_time_pos)
 
-if __name__ == "__main__":
-	app.run(host='0.0.0.0', port=5000, debug=True)
-	freezer.freeze()
+if __name__ == '__main__':
+	port = int(os.environ.get("PORT", 5000))
+	app.run(host='0.0.0.0', port=port, debug=True)
+# 	freezer.freeze()
